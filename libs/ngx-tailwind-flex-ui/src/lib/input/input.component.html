@@ -1,0 +1,25 @@
+<div class="relative w-full">
+    <div class="flex items-center border rounded-md w-full" [ngClass]="{
+      'border-gray-300': !errorMessage,
+      'border-red-500': errorMessage,
+      'bg-gray-100': appearance === 'filled'
+    }">
+      <span *ngIf="prefix" class="pl-2 text-gray-500 flex-shrink-0">{{ prefix }}</span>
+      <input
+        [type]="type"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [attr.maxLength]="maxLength"
+        [(ngModel)]="value"
+        (input)="onChange(value)"
+        (blur)="onBlur()"
+        class="w-full p-2 focus:outline-none"
+      />
+      <span *ngIf="suffix" class="pr-2 text-gray-500 flex-shrink-0">{{ suffix }}</span>
+    </div>
+    <div *ngIf="maxLength" class="text-right text-xs text-gray-500">
+      {{ value.length }} / {{ maxLength }}
+    </div>
+    <div *ngIf="errorMessage" class="text-red-500 text-sm mt-1">{{ errorMessage }}</div>
+  </div>
