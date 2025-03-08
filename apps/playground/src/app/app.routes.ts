@@ -9,4 +9,11 @@ export const appRoutes: Route[] = [
         (m) => m.ButtonDemoComponent
       ),
   },
+  {
+    path: 'icon',
+    loadComponent: () =>
+      import('./components/icon-demo/icon-demo.component').then(
+        (m) => m.IconDemoComponent
+      ),
+  },
 ];

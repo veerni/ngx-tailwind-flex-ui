@@ -1,0 +1,213 @@
+<div class="p-8 max-w-6xl mx-auto">
+  <h1 class="text-3xl font-bold mb-8">Icon Component Showcase</h1>
+
+  <!-- Basic Usage -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Basic Usage</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="flex flex-col gap-2 items-center">
+        <h3 class="text-lg font-medium">Default</h3>
+        <lib-icon name="home"></lib-icon>
+      </div>
+      <div class="flex flex-col gap-2 items-center">
+        <h3 class="text-lg font-medium">Custom Icon</h3>
+        <lib-icon name="star"></lib-icon>
+      </div>
+      <div class="flex flex-col gap-2 items-center">
+        <h3 class="text-lg font-medium">Colored Icon</h3>
+        <lib-icon name="favorite" color="text-red-600"></lib-icon>
+      </div>
+      <div class="flex flex-col gap-2 items-center">
+        <h3 class="text-lg font-medium">With Text</h3>
+        <div class="flex items-center gap-2">
+          <lib-icon name="settings"></lib-icon>
+          <span>Settings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Size Variations -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Size Variations</h2>
+    <div class="flex flex-wrap items-center justify-center gap-8">
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Small</span>
+        <lib-icon name="search" size="sm"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Medium (Default)</span>
+        <lib-icon name="search" size="md"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Large</span>
+        <lib-icon name="search" size="lg"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Extra Large</span>
+        <lib-icon name="search" size="xl"></lib-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Variations -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Color Variations</h2>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
+      <div *ngFor="let color of colorOptions" class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">{{color.name}}</span>
+        <lib-icon name="star" [color]="color.class"></lib-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Icons Showcase -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Common Icons</h2>
+    <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 gap-6">
+      <div *ngFor="let icon of commonIcons" class="flex flex-col items-center gap-1">
+        <lib-icon [name]="icon"></lib-icon>
+        <span class="text-xs text-gray-600">{{icon}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon Categories -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Icon Categories</h2>
+    <div class="flex flex-col gap-8">
+      <div *ngFor="let category of iconCategories" class="flex flex-col gap-4">
+        <h3 class="text-lg font-medium">{{category.name}}</h3>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-6">
+          <div *ngFor="let icon of category.icons" class="flex flex-col items-center gap-1">
+            <lib-icon [name]="icon"></lib-icon>
+            <span class="text-xs text-gray-600">{{icon}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Example -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Interactive Example</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Icon Selector -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Icon Selector</h3>
+        <div class="flex flex-col gap-4">
+          <p class="text-gray-600">Click on an icon to select it:</p>
+          <div class="grid grid-cols-5 gap-4">
+            <div *ngFor="let icon of commonIcons.slice(0, 10)"
+                 class="p-2 border rounded-md cursor-pointer hover:bg-gray-100 flex flex-col items-center gap-1"
+                 [class.bg-blue-100]="selectedIcon === icon"
+                 (click)="selectIcon(icon)">
+              <lib-icon [name]="icon"></lib-icon>
+              <span class="text-xs">{{icon}}</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 border rounded-md bg-gray-50 flex items-center justify-center">
+            <div class="flex flex-col items-center gap-2">
+              <lib-icon [name]="selectedIcon" size="xl" color="text-blue-600"></lib-icon>
+              <span class="text-sm">Selected: {{selectedIcon}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Example -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Animation Example</h3>
+        <div class="flex flex-col gap-4">
+          <p class="text-gray-600">Toggle animation:</p>
+          <div class="flex justify-center">
+            <lib-icon
+              name="sync"
+              size="xl"
+              color="text-blue-600"
+              [ngClass]="{'animate-spin': animatedIcon}">
+            </lib-icon>
+          </div>
+          <div class="flex justify-center mt-4">
+            <button
+              (click)="toggleAnimation()"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              {{ animatedIcon ? 'Stop Animation' : 'Start Animation' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon with Custom Styling -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Custom Styling Examples</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Shadow Effect</span>
+        <lib-icon name="cloud" size="xl" color="text-blue-500" class="filter drop-shadow-lg"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Opacity Effect</span>
+        <lib-icon name="visibility" size="xl" color="text-purple-600" class="opacity-50"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Transform Effect</span>
+        <lib-icon name="refresh" size="xl" color="text-green-600" class="transform rotate-45"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Hover Effect</span>
+        <lib-icon name="favorite" size="xl" color="text-gray-400" class="hover:text-red-600 transition-colors"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Pulse Animation</span>
+        <lib-icon name="notifications" size="xl" color="text-yellow-500" class="animate-pulse"></lib-icon>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-sm text-gray-600">Gradient Text</span>
+        <lib-icon name="star" size="xl" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"></lib-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon in Components -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Icons in UI Components</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Button with Icon -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Button with Icon</h3>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center gap-2">
+          <lib-icon name="save" color="text-white"></lib-icon>
+          <span>Save Changes</span>
+        </button>
+      </div>
+
+      <!-- Input with Icon -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Input with Icon</h3>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <lib-icon name="search" color="text-gray-400"></lib-icon>
+          </div>
+          <input type="text" class="pl-10 pr-3 py-2 w-full border rounded-md" placeholder="Search...">
+        </div>
+      </div>
+
+      <!-- Card with Icon -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Card with Icon</h3>
+        <div class="p-4 border rounded-md bg-gray-50">
+          <div class="flex items-start gap-3">
+            <lib-icon name="info" color="text-blue-600" size="lg"></lib-icon>
+            <div>
+              <h4 class="font-medium">Information</h4>
+              <p class="text-sm text-gray-600">This is an example of using icon in a card layout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
