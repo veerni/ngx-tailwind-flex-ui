@@ -44,4 +44,8 @@ Thumbs.db
 .angular
 
 
+# Storybook
 storybook-static
+documentation.json
+libs/ngx-tailwind-flex-ui/documentation.json
+
