@@ -172,6 +172,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: dist/apps/playground
+          publish_dir: dist/apps/playground/browser
           destination_dir: playground
           keep_files: true

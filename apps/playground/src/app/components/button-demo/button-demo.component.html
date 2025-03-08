@@ -1,24 +1,334 @@
-<div class="p-6">
-  <h1 class="text-2xl font-bold mb-4">Button Component Demo</h1>
-  <div class="flex flex-col gap-4">
-    <div>
-      <h2 class="text-lg font-semibold mb-2">Default Button</h2>
-      <lib-button>Default Button</lib-button>
-    </div>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-2">Primary Button</h2>
-      <lib-button variant="outline">Outline Button</lib-button>
-    </div>
+<div class="p-8 max-w-6xl mx-auto">
+  <h1 class="text-3xl font-bold mb-8">Button Component Showcase</h1>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-2">Secondary Button</h2>
-      <lib-button variant="accent">Accent Button</lib-button>
+  <!-- Basic Variants -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Basic Variants</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Primary</h3>
+        <lib-button variant="primary">Primary Button</lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Accent</h3>
+        <lib-button variant="accent">Accent Button</lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Outline</h3>
+        <lib-button variant="outline">Outline Button</lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Text</h3>
+        <lib-button variant="text">Text Button</lib-button>
+      </div>
     </div>
+  </section>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-2">Disabled Button</h2>
-      <lib-button [disabled]="true">Disabled Button</lib-button>
+  <!-- States -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Button States</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Default</h3>
+        <lib-button>Default</lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Disabled</h3>
+        <lib-button [disabled]="true">Disabled</lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Loading</h3>
+        <lib-button class="relative">
+          <span class="opacity-0">Loading</span>
+          <span class="absolute inset-0 flex items-center justify-center">
+            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </span>
+        </lib-button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-medium">Success</h3>
+        <lib-button class="bg-green-600 hover:bg-green-700 focus:ring-green-500">
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Success
+          </span>
+        </lib-button>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Sizes -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Button Sizes</h2>
+    <div class="flex flex-wrap items-center gap-4">
+      <lib-button class="px-2 py-1 text-xs">Extra Small</lib-button>
+      <lib-button class="px-3 py-1.5 text-sm">Small</lib-button>
+      <lib-button>Default</lib-button>
+      <lib-button class="px-5 py-2.5 text-lg">Large</lib-button>
+      <lib-button class="px-6 py-3 text-xl">Extra Large</lib-button>
+    </div>
+  </section>
+
+  <!-- With Icons -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Buttons with Icons</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <lib-button>
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+          </svg>
+          View Details
+        </span>
+      </lib-button>
+
+      <lib-button variant="accent">
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          Add New
+        </span>
+      </lib-button>
+
+      <lib-button variant="outline">
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+          Download
+        </span>
+      </lib-button>
+
+      <lib-button variant="text">
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+          Delete
+        </span>
+      </lib-button>
+    </div>
+  </section>
+
+  <!-- Icon-only Buttons -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Icon-only Buttons</h2>
+    <div class="flex flex-wrap gap-4">
+      <lib-button class="p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+      </lib-button>
+
+      <lib-button variant="accent" class="p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+      </lib-button>
+
+      <lib-button variant="outline" class="p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+        </svg>
+      </lib-button>
+
+      <lib-button variant="text" class="p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </lib-button>
+
+      <lib-button class="p-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+        </svg>
+      </lib-button>
+    </div>
+  </section>
+
+  <!-- Button Shapes -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Button Shapes</h2>
+    <div class="flex flex-wrap gap-4">
+      <lib-button class="rounded-none">Square Edges</lib-button>
+      <lib-button class="rounded-sm">Small Radius</lib-button>
+      <lib-button>Default Radius</lib-button>
+      <lib-button class="rounded-lg">Large Radius</lib-button>
+      <lib-button class="rounded-full">Fully Rounded</lib-button>
+    </div>
+  </section>
+
+  <!-- Button Groups -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Button Groups</h2>
+    <div class="flex flex-col gap-6">
+      <div class="inline-flex rounded-md shadow-sm">
+        <lib-button class="rounded-r-none">Left</lib-button>
+        <lib-button class="rounded-none border-l-0 border-r-0">Middle</lib-button>
+        <lib-button class="rounded-l-none">Right</lib-button>
+      </div>
+
+      <div class="inline-flex rounded-md shadow-sm">
+        <lib-button variant="outline" class="rounded-r-none">Day</lib-button>
+        <lib-button variant="outline" class="rounded-none border-l-0 border-r-0">Week</lib-button>
+        <lib-button variant="outline" class="rounded-l-none">Month</lib-button>
+      </div>
+
+      <div class="inline-flex">
+        <lib-button variant="primary" class="rounded-r-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </lib-button>
+        <lib-button variant="primary" class="rounded-l-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </lib-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Width Variations -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Width Variations</h2>
+    <div class="flex flex-col gap-4">
+      <lib-button>Default Width</lib-button>
+      <lib-button class="w-full">Full Width</lib-button>
+      <lib-button class="w-1/2">Half Width</lib-button>
+      <lib-button class="w-1/4">Quarter Width</lib-button>
+      <div class="grid grid-cols-2 gap-4">
+        <lib-button class="w-full">Grid Item 1</lib-button>
+        <lib-button class="w-full">Grid Item 2</lib-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Colors -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Custom Colors</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <lib-button class="bg-green-600 hover:bg-green-700 focus:ring-green-500">Success</lib-button>
+      <lib-button class="bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-400 text-gray-900">Warning</lib-button>
+      <lib-button class="bg-red-600 hover:bg-red-700 focus:ring-red-500">Danger</lib-button>
+      <lib-button class="bg-gray-800 hover:bg-gray-900 focus:ring-gray-700">Dark</lib-button>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Common Use Cases</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Form Submission -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Form Submission</h3>
+        <div class="flex gap-2">
+          <lib-button variant="outline">Cancel</lib-button>
+          <lib-button>Submit</lib-button>
+        </div>
+      </div>
+
+      <!-- Dialog Actions -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Dialog Actions</h3>
+        <div class="flex gap-2 justify-end">
+          <lib-button variant="text">Cancel</lib-button>
+          <lib-button variant="accent">Confirm</lib-button>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Pagination</h3>
+        <div class="flex gap-1">
+          <lib-button variant="outline" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </lib-button>
+          <lib-button variant="primary" class="px-3">1</lib-button>
+          <lib-button variant="outline" class="px-3">2</lib-button>
+          <lib-button variant="outline" class="px-3">3</lib-button>
+          <lib-button variant="outline" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </lib-button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Examples (for demo purposes) -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Interactive Examples</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Loading State Toggle -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Loading State</h3>
+        <div class="flex gap-2">
+          <lib-button (click)="toggleLoading()" [class]="isLoading ? 'hidden' : ''">
+            Start Loading
+          </lib-button>
+          <lib-button *ngIf="isLoading" class="relative">
+            <span class="opacity-0">Loading...</span>
+            <span class="absolute inset-0 flex items-center justify-center">
+              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </span>
+          </lib-button>
+        </div>
+      </div>
+
+      <!-- Toggle Button -->
+      <div class="p-4 border rounded-lg">
+        <h3 class="text-lg font-medium mb-3">Toggle Button</h3>
+        <lib-button
+          [variant]="isToggled ? 'primary' : 'outline'"
+          (click)="toggleButton()">
+          {{ isToggled ? 'On' : 'Off' }}
+        </lib-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Examples -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 pb-2 border-b">Customization Examples</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <lib-button class="shadow-lg transform hover:scale-105 transition-transform">
+        With Scale Effect
+      </lib-button>
+
+      <lib-button class="uppercase tracking-wider font-bold">
+        Uppercase Text
+      </lib-button>
+
+      <lib-button class="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600">
+        Gradient Background
+      </lib-button>
+
+      <lib-button class="border-2 border-dashed">
+        Dashed Border
+      </lib-button>
+
+      <lib-button class="animate-pulse">
+        Pulsing Animation
+      </lib-button>
+
+      <lib-button class="hover:animate-bounce">
+        Hover Bounce
+      </lib-button>
+    </div>
+  </section>
 </div>

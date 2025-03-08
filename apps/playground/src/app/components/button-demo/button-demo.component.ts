@@ -9,4 +9,18 @@ import { ButtonComponent } from '@ngx-tailwind-flex-ui';
   imports: [CommonModule, ButtonComponent],
   templateUrl: './button-demo.component.html',
 })
-export class ButtonDemoComponent {}
+export class ButtonDemoComponent {
+  isLoading = false;
+  isToggled = false;
+
+  toggleLoading() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  }
+
+  toggleButton() {
+    this.isToggled = !this.isToggled;
+  }
+}
