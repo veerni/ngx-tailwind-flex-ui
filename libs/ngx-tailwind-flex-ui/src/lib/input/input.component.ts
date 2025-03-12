@@ -14,12 +14,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class InputComponent implements ControlValueAccessor, OnChanges {
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
-  @Input() disabled: boolean = false;
-  @Input() readonly: boolean = false;
+  @Input() type = 'text';
+  @Input() placeholder = 'enter text here';
+  @Input() disabled = false;
+  @Input() readonly = false;
   @Input() maxLength?: number;
-  @Input() value: string = '';
+  @Input() value = '';
   @Input() prefix?: string;
   @Input() suffix?: string;
   @Input() appearance: 'outline' | 'filled' | 'standard' = 'outline';
@@ -27,7 +27,9 @@ export class InputComponent implements ControlValueAccessor, OnChanges {
 
   isTouched = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: any = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: any = () => {};
 
   ngOnChanges(changes: SimpleChanges) {
