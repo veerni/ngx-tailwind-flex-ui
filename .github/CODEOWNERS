@@ -1,0 +1,8 @@
+# CODEOWNERS file for ngx-tailwind-flex-ui
+#
+# This file ensures that @iarunsaragadam is a required reviewer
+# for all pull requests to this repository
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Require iarunsaragadam to review everything in the repository
+* @iarunsaragadam
